@@ -90,7 +90,7 @@ if (strpos($checkPing, '2 received, 0% packet loss')) {
     die;
 }
 
-//Check if RhobanServer listen to the referee
+//Check if StarkitServer listen to the referee
 $isServerRunning = `ssh starkit@$remote ps aux | grep -v "grep" | grep "StarkitServer"`;
 if (strpos($isServerRunning, 'StarkitServer')) {
     echo "StarkitServer is running. Check referee state:\n";
