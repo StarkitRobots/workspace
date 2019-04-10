@@ -23,7 +23,7 @@ $ESSID = 'HL_FIELD_'.strtoupper($field).'_5G';
 $teamId = $result[1];
 
 //Retrieve robot hostname
-$hostname = trim(`ssh rhoban@$remote cat /etc/hostname`);
+$hostname = trim(`ssh starkit@$remote cat /etc/hostname`);
 
 //Set ip address
 $ip = null;
@@ -49,39 +49,39 @@ if ($hostname == 'olive') {
 echo "Connecting \e[1m$hostname\e[m to wifi \e[1m$ESSID\e[m with IP \e[1m$ip\e[m (TeamId: \e[1m$teamId\e[m)\n";
 
 //Wifi magic
-`ssh rhoban@$remote sudo killall -2 ping 2> /dev/null`;
+`ssh starkit@$remote sudo killall -2 ping 2> /dev/null`;
 
 // Be sure wpa supplicant is killed
-`ssh rhoban@$remote sudo killall -2 wpa_supplicant 2> /dev/null`;
-`ssh rhoban@$remote sudo killall -9 wpa_supplicant 2> /dev/null`;
+`ssh starkit@$remote sudo killall -2 wpa_supplicant 2> /dev/null`;
+`ssh starkit@$remote sudo killall -9 wpa_supplicant 2> /dev/null`;
 
 // Down then upping the interface
-`ssh rhoban@$remote sudo ifconfig $wiface down`;
-`ssh rhoban@$remote sudo ifconfig $wiface up`;
+`ssh starkit@$remote sudo ifconfig $wiface down`;
+`ssh starkit@$remote sudo ifconfig $wiface up`;
 
 // Joining the ESSID
-//`ssh rhoban@$remote sudo iw dev $wiface scan | grep $ESSID`;
-`ssh rhoban@$remote sudo iw $wiface connect $ESSID`;
+//`ssh starkit@$remote sudo iw dev $wiface scan | grep $ESSID`;
+`ssh starkit@$remote sudo iw $wiface connect $ESSID`;
 
 // Setting IP address
-`ssh rhoban@$remote sudo ifconfig $wiface $ip netmask 255.255.0.0`;
+`ssh starkit@$remote sudo ifconfig $wiface $ip netmask 255.255.0.0`;
 
 // Connecting to WiFi
-`ssh rhoban@$remote "wpa_passphrase $ESSID humanoid2018 > /tmp/wpa.conf"`;
-`ssh rhoban@$remote sudo wpa_supplicant -B -i$wiface -c/tmp/wpa.conf -Dwext`;
+`ssh starkit@$remote "wpa_passphrase $ESSID humanoid2018 > /tmp/wpa.conf"`;
+`ssh starkit@$remote sudo wpa_supplicant -B -i$wiface -c/tmp/wpa.conf -Dwext`;
 
 // Open Iran
-#`ssh rhoban@$remote sudo ifconfig $wiface $ip netmask 255.255.255.0`;
-#`ssh rhoban@$remote sudo ifconfig wlan0 $ip netmask 255.255.255.0`;
-//`ssh rhoban@$remote "wpa_passphrase $ESSID humanoidrobot > /tmp/wpa.conf"`;
+#`ssh starkit@$remote sudo ifconfig $wiface $ip netmask 255.255.255.0`;
+#`ssh starkit@$remote sudo ifconfig wlan0 $ip netmask 255.255.255.0`;
+//`ssh rstarkit@$remote "wpa_passphrase $ESSID humanoidrobot > /tmp/wpa.conf"`;
 // OPen IRAN
-#`ssh rhoban@$remote "wpa_passphrase $ESSID Humanoid2018 > /tmp/wpa.conf"`;
-#`ssh rhoban@$remote sudo wpa_supplicant -B -i$wiface -c/tmp/wpa.conf -Dwext`;
+#`ssh starkit@$remote "wpa_passphrase $ESSID Humanoid2018 > /tmp/wpa.conf"`;
+#`ssh starkit@$remote sudo wpa_supplicant -B -i$wiface -c/tmp/wpa.conf -Dwext`;
 sleep(3);
 
 //Check to ping to router twice
 echo "Check wifi by pinging router:\n";
-$checkPing = `ssh rhoban@$remote ping -W 1 -n -c 2 192.168.1.100`;
+$checkPing = `ssh starkit@$remote ping -W 1 -n -c 2 192.168.1.100`;
 
 if (strpos($checkPing, '2 received, 0% packet loss')) {
     echo "\e[1mOK. Network is ready.\e[m\n";
@@ -91,13 +91,13 @@ if (strpos($checkPing, '2 received, 0% packet loss')) {
 }
 
 //Check if RhobanServer listen to the referee
-$isServerRunning = `ssh rhoban@$remote ps aux | grep -v "grep" | grep "RhobanServer"`;
-if (strpos($isServerRunning, 'RhobanServer')) {
-    echo "RhobanServer is running. Check referee state:\n";
+$isServerRunning = `ssh starkit@$remote ps aux | grep -v "grep" | grep "StarkitServer"`;
+if (strpos($isServerRunning, 'StarkitServer')) {
+    echo "StarkitServer is running. Check referee state:\n";
     $result = trim(`rhio $remote /referee/state`);
     echo "$result\n";
 } else {
-    echo "RhobanServer is not running.\n";
+    echo "StarkitServer is not running.\n";
     die;
 }
 
