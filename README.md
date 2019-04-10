@@ -45,7 +45,7 @@ field, choose any name you want and validate the new key.
 
 Clone the latest stable release of `workspace` repository and move to it:
 
-    git clone -b final_2018 https://github.com/rhoban/workspace.git
+    git clone -b final_2018 https://github.com/StarkitRobots/workspace.git
     cd workspace
 
 Then, run the setup:
