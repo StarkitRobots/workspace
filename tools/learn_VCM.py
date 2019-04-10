@@ -120,7 +120,7 @@ else:
     bash_command(cmd)
 
     print("Retrieving the aruco file.")
-    cmd="scp rhoban@%s:~/env/%s/arucoCalibration.csv %s"%(ip,robot,aruco)
+    cmd="scp starkit@%s:~/env/%s/arucoCalibration.csv %s"%(ip,robot,aruco)
     _,_,code=bash_command(cmd)
     cmd="cp %s %s/%s"%(aruco,folder,aruco)
     _,_,code=bash_command(cmd)
