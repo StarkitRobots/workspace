@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HOST="rhoban@10.0.0.1"
+HOST="starkit@10.0.0.1"
 
 # Retrieving robot hostname
 ROBOT=$(ssh $HOST hostname)
