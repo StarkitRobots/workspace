@@ -26,7 +26,7 @@ class GraphCommand extends Command
         foreach ($this->workspace->getPackages() as $package) {
             $name = basename($package->getName());
             $graph .= "\"$name\"";
-            if (strstr(strtolower($package->getRepository()), 'rhoban') !== false
+            if (strstr(strtolower($package->getRepository()), 'starkit') !== false
             && strstr(strtolower($package->getRepository()), 'deps') === false) {
                 $graph .= " [color=deepskyblue4,fontcolor=white,fillcolor=deepskyblue4,style=filled,fontsize=30]";
             } else {
