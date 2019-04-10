@@ -5,8 +5,8 @@
 
 echo "A new day dawns"
 
-host=$(ssh rhoban@10.0.0.1 hostname)
-robot_home=$(ssh rhoban@10.0.0.1 pwd)
+host=$(ssh starkit@10.0.0.1 hostname)
+robot_home=$(ssh starkit@10.0.0.1 pwd)
 echo "Robot home is "$robot_home
 echo "Going to perform a calibration for $host"
 
@@ -45,12 +45,12 @@ bash deploy-env
 
 echo "Setting the calibration pipeline on the robot..."
 ## Sad fix
-ssh rhoban@10.0.0.1 rm $robot_home/env/$host/LocalisationTest.xml
-ssh rhoban@10.0.0.1 rm $robot_home/env/$host/LocalisationTest.xml
-ssh rhoban@10.0.0.1 rm $robot_home/env/$host/LocalisationTest.xml
-ssh rhoban@10.0.0.1 ln -sf $robot_home/env/common/arucoCalibEmbedded.xml $robot_home/env/$host/LocalisationTest.xml
-ssh rhoban@10.0.0.1 ln -sf $robot_home/env/common/arucoCalibEmbedded.xml $robot_home/env/$host/LocalisationTest.xml
-ssh rhoban@10.0.0.1 ln -sf $robot_home/env/common/arucoCalibEmbedded.xml $robot_home/env/$host/LocalisationTest.xml
+ssh starkit@10.0.0.1 rm $robot_home/env/$host/LocalisationTest.xml
+ssh starkit@10.0.0.1 rm $robot_home/env/$host/LocalisationTest.xml
+ssh starkit@10.0.0.1 rm $robot_home/env/$host/LocalisationTest.xml
+ssh starkit@10.0.0.1 ln -sf $robot_home/env/common/arucoCalibEmbedded.xml $robot_home/env/$host/LocalisationTest.xml
+ssh starkit@10.0.0.1 ln -sf $robot_home/env/common/arucoCalibEmbedded.xml $robot_home/env/$host/LocalisationTest.xml
+ssh starkit@10.0.0.1 ln -sf $robot_home/env/common/arucoCalibEmbedded.xml $robot_home/env/$host/LocalisationTest.xml
 
 
 echo "*** Restart RhobanServer, when the lowlevel is ready press enter..."
@@ -89,7 +89,7 @@ mkdir $LOCAL_DIR
 
 
 echo "*** Retrieving the calibration data from the robot"
-if scp rhoban@10.0.0.1:$ARUCO_DIR $LOCAL_DIR
+if scp starkit@10.0.0.1:$ARUCO_DIR $LOCAL_DIR
 then
     echo "scp succeeded."
 else
@@ -97,7 +97,7 @@ else
     exit
 fi
 #echo "*** Deleting the calibration data on the robot"
-#ssh rhoban@10.0.0.1 rm -rf $ARUCO_DIR
+#ssh starkit@10.0.0.1 rm -rf $ARUCO_DIR
 
 echo "*** Copying the urdf for $host..."
 rm $LOCAL_DIR/sigmaban.urdf
@@ -127,7 +127,7 @@ echo "*** deploy-enving..."
 cd $HOME/workspace/
 bash deploy-env
 #echo "*** Moving the result to the distant robot's environment (on the robot: $robot_home/env/$host/)..."
-#if scp ./cameraModel.params rhoban@10.0.0.1:$robot_home/env/$host/
+#if scp ./cameraModel.params starkit@10.0.0.1:$robot_home/env/$host/
 #then
 #    echo "mv succeeded..."
 #else
