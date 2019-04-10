@@ -3,7 +3,7 @@
 - Convertir les images en rgb (workspace/tools/yuv2rgb.py)
 - Créer panorama dans hugin
 - Faire masque à l'oeil et adapter en faisant tourner sift en fake
-  - mettre les images (pano et masque) dans common, et mettre dans workspace/src/rhoban/kid_size/Vision/Filters/Features/VisualCompass.cpp les bonnes image dans updateField()
+  - mettre les images (pano et masque) dans common, et mettre dans workspace/src/starkit/kid_size/Vision/Filters/Features/VisualCompass.cpp les bonnes image dans updateField()
   - dans workspace/env/fake/ ./prepare.sh robot <path to log>
   - ./run.sh
 
