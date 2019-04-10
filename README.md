@@ -56,21 +56,21 @@ You can then install the latest stable release of all the rhoban source code:
 Note: You should make a fork of rhoban/environments_public in order to have
 the configuration for your own robots.
 
-    ./workspace install rhoban/hl_kid_public.git
-    ./workspace install rhoban/environments_public.git
+    ./workspace install StarkitRobots/hl_kid_public.git
+    ./workspace install StarkitRobots/environments_starkit.git
     ./workspace install rhoban/monitoring_robocup.git
     ./workspace git checkout final_2018
-    ln -sf src/rhoban/environments_public env
+    ln -sf  src/starkitrobots/environments_starkit/ env
 
 Some symbolic links should be modified in env/fake.
 "default_robot" should be change with one of the robot folder name:
 
-    ln -sf ../default_robot/kick_classic.json env/fake
-    ln -sf ../default_robot/kick_small.json env/fake
-    ln -sf ../default_robot/kick_lateral.json env/fake
-    ln -sf ../default_robot/KickModelCollection.json env/fake
-    ln -sf ../default_robot/VCM.json env/fake
-    ln -sf ../default_robot/sigmaban.urdf env/fake
+    ln -sf ../starkit_robot/kick_classic.json env/fake
+    ln -sf ../starkit_robot/kick_small.json env/fake
+    ln -sf ../starkit_robot/kick_lateral.json env/fake
+    ln -sf ../starkit_robot/KickModelCollection.json env/fake
+    ln -sf ../starkit_robot/VCM.json env/fake
+    ln -sf ../starkit_robot/sigmaban.urdf env/fake
     ln -sf ../../../rhoban/model/Data/font.ttf env/fake
 
     
