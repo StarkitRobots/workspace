@@ -21,7 +21,7 @@ ENV_DIR="$HOME/workspace/env/$host"
 echo "*** Deploy-enving..."
 bash deploy-env
 
-echo "Start RhobanServer now and press enter to init"
+echo "Start StarkitServer now and press enter to init"
 read input
 
 rhio 10.0.0.1 init
