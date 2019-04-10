@@ -294,7 +294,7 @@ cmd('/teamplay/isFieldInverted='.$fieldInverted);
 
 
 msg('DISK', "Checking robot space");
-echo `ssh rhoban@$host df -h /dev/sda2`;
+echo `ssh starkit@$host df -h /dev/sda2`;
 
 if (question("LOG", "Should the robot log during the game?")) {
   cmd('/Vision/autologGames=true');
