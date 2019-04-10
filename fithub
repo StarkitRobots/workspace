@@ -1,7 +1,7 @@
 
 ./workspace git remote rm fithub
 ./workspace git remote add fithub git@fithub:REPOSITORY_NAME.git
-git remote add fithub git@fithub:rhoban/workspace.git
+git remote add fithub git@fithub:starkit/workspace.git
 git fetch fithub
 git branch -u fithub/master
 ./workspace pull
