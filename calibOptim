@@ -53,7 +53,7 @@ ssh starkit@10.0.0.1 ln -sf $robot_home/env/common/arucoCalibEmbedded.xml $robot
 ssh starkit@10.0.0.1 ln -sf $robot_home/env/common/arucoCalibEmbedded.xml $robot_home/env/$host/LocalisationTest.xml
 
 
-echo "*** Restart RhobanServer, when the lowlevel is ready press enter..."
+echo "*** Restart StarkitServer, when the lowlevel is ready press enter..."
 read input
 
 echo "Press enter to walk"
