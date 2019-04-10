@@ -11,12 +11,12 @@ $remote = isset($argv[1]) ? $argv[1] : '10.0.0.1';
 
 // Killing server on host
 echo "Killing KidSize on " . $remote;
-`ssh rhoban@$remote ./env/stop.sh`;
+`ssh starkit@$remote ./env/stop.sh`;
 
 // Parameters
 $binary = 'devel_release/lib/kid_size/KidSize';
-$targetHost = 'rhoban@'.$remote;
-$targetDir = '/home/rhoban/catkin_rel/';
+$targetHost = 'starkit@'.$remote;
+$targetDir = '/home/starkit/catkin_rel/';
 
 $libBlackList=array("libpthread.","libstdc","libm.","libgcc","libc.","libdl-","libdl.");
 
