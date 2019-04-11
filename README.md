@@ -58,7 +58,7 @@ the configuration for your own robots.
 
     ./workspace install StarkitRobots/hl_kid_public.git
     ./workspace install StarkitRobots/environments_starkit.git
-    ./workspace install rhoban/monitoring_robocup.git
+    ./workspace install StarkitRobots/monitoring_robocup.git
     ./workspace git checkout final_2018
     ln -sf  src/starkitrobots/environments_starkit/ env
 
